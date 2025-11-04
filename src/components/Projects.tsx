@@ -3,22 +3,34 @@ import Icon from '@/components/ui/icon';
 
 const projects = [
   {
-    title: 'Благоустройство парка "Центральный"',
-    location: 'г. Москва',
-    items: '120 единиц малых архитектурных форм',
-    image: '/placeholder.svg'
+    title: 'Городское благоустройство',
+    location: 'г. Улан-Удэ',
+    items: 'Скамейки и урны из ДПК',
+    image: 'https://cdn.poehali.dev/files/e1eb8084-16a1-4ae6-a721-3bfcdbebb94b.jpg'
   },
   {
-    title: 'Жилой комплекс "Зеленая долина"',
-    location: 'г. Санкт-Петербург',
-    items: '85 единиц продукции',
-    image: '/placeholder.svg'
+    title: 'Парковая зона',
+    location: 'г. Улан-Удэ',
+    items: 'Комплект скамеек со столом',
+    image: 'https://cdn.poehali.dev/files/6cde4aa6-f7b9-44ac-8e8b-35a089970290.jpg'
   },
   {
-    title: 'Набережная реки Волга',
-    location: 'г. Нижний Новгород',
-    items: '200+ единиц',
-    image: '/placeholder.svg'
+    title: 'Зона отдыха',
+    location: 'г. Улан-Удэ',
+    items: 'Скамейки и урны',
+    image: 'https://cdn.poehali.dev/files/57905ffc-9e81-49ca-afb2-97f6b46c6ca5.jpg'
+  },
+  {
+    title: 'Парковка',
+    location: 'г. Улан-Удэ',
+    items: 'Скамейки и урны из композита',
+    image: 'https://cdn.poehali.dev/files/82b4ccfe-7092-4f72-bc8c-4b1a2d026194.jpg'
+  },
+  {
+    title: 'Вазон-контейнер',
+    location: 'г. Улан-Удэ',
+    items: 'Декоративная клумба ДПК',
+    image: 'https://cdn.poehali.dev/files/d8ed047e-12d3-4355-9744-367c818cdf65.jpg'
   }
 ];
 
@@ -35,7 +47,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
             <Card 
               key={idx}
