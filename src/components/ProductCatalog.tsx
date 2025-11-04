@@ -61,9 +61,29 @@ const products = [
   }
 ];
 
+const categoryBlocks = [
+  {
+    name: 'Лавочки',
+    icon: 'Armchair',
+    description: 'Скамейки и лавки для парков',
+    color: 'from-blue-500 to-blue-600'
+  },
+  {
+    name: 'Урны',
+    icon: 'Trash2',
+    description: 'Контейнеры для мусора',
+    color: 'from-green-500 to-green-600'
+  },
+  {
+    name: 'Кашпо',
+    icon: 'Flower2',
+    description: 'Вазоны и клумбы',
+    color: 'from-purple-500 to-purple-600'
+  }
+];
+
 export default function ProductCatalog() {
   const [selectedCategory, setSelectedCategory] = useState('Все');
-  const categories = ['Все', 'Лавочки', 'Урны', 'Кашпо'];
 
   const filteredProducts = selectedCategory === 'Все' 
     ? products 
@@ -79,16 +99,38 @@ export default function ProductCatalog() {
           </p>
         </div>
 
-        <div className="flex justify-center gap-3 mb-12 flex-wrap">
-          {categories.map(cat => (
-            <Button
-              key={cat}
-              variant={selectedCategory === cat ? 'default' : 'outline'}
-              onClick={() => setSelectedCategory(cat)}
-              className="px-6"
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <Card 
+            onClick={() => setSelectedCategory('Все')}
+            className={`cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+              selectedCategory === 'Все' ? 'ring-2 ring-primary shadow-lg' : ''
+            }`}
+          >
+            <CardHeader className="text-center">
+              <div className="mx-auto mb-3 w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                <Icon name="Grid3x3" size={32} className="text-white" />
+              </div>
+              <CardTitle className="font-heading text-xl">Все товары</CardTitle>
+              <CardDescription>Весь ассортимент</CardDescription>
+            </CardHeader>
+          </Card>
+
+          {categoryBlocks.map((cat) => (
+            <Card 
+              key={cat.name}
+              onClick={() => setSelectedCategory(cat.name)}
+              className={`cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                selectedCategory === cat.name ? 'ring-2 ring-primary shadow-lg' : ''
+              }`}
             >
-              {cat}
-            </Button>
+              <CardHeader className="text-center">
+                <div className={`mx-auto mb-3 w-16 h-16 rounded-full bg-gradient-to-br ${cat.color} flex items-center justify-center`}>
+                  <Icon name={cat.icon} size={32} className="text-white" />
+                </div>
+                <CardTitle className="font-heading text-xl">{cat.name}</CardTitle>
+                <CardDescription>{cat.description}</CardDescription>
+              </CardHeader>
+            </Card>
           ))}
         </div>
 
